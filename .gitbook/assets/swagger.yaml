@@ -1,0 +1,2681 @@
+swagger: '2.0'
+info:
+  description: This is Advantech License Server for SRP to Activate
+  version: 1.0.0
+  title: Advantech License Server
+  contact:
+    email: sephiroth.wang@advantech.com.tw
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: srp-management.wise-paas.com:443
+basePath: /api
+tags:
+  - name: License
+    description: ''
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+  - name: Validation
+    description: ''
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+schemes:
+  - https
+paths:
+  /authcode:
+    get:
+      tags:
+        - License
+      summary: ''
+      description: Get AuthCode with SRP name, licensekey and orgid
+      produces:
+        - application/json
+      parameters:
+        - name: product
+          in: query
+          description: The SRP Name
+          required: true
+          type: string
+        - name: licensekey
+          in: query
+          description: The key of your license
+          required: true
+          type: string
+        - name: orgid
+          in: query
+          description: Machine ID or Space ID or Org ID
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AuthCode'
+  /agentnum:
+    get:
+      tags:
+        - Validation
+      summary: ''
+      description: Verify AuthCode and get quantity with AuthCode, license key and orgid
+      produces:
+        - application/json
+      parameters:
+        - name: authcode
+          in: query
+          description: The AuthCode which is created from api "/authcode"
+          required: true
+          type: string
+        - name: licensekey
+          in: query
+          description: The key of your license
+          required: true
+          type: string
+        - name: orgid
+          in: query
+          description: Machine ID or Space ID or Org ID
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Quantity'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+  /licenseQty:
+    get:
+      tags:
+        - Phase Out
+      summary: ''
+      description: Get AuthCode and purchased quantity with SRP name and ID (For Ensaas)
+      produces:
+        - application/json
+      parameters:
+        - name: product
+          in: query
+          description: The SRP Name
+          required: true
+          type: string
+        - name: id
+          in: query
+          description: Machine ID or Space ID
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/License'
+  /partNum/authcode:
+    get:
+      tags:
+        - License
+      summary: ''
+      description: Perpetual SRP used, accumulate quantity and return license status
+      produces:
+        - application/json
+      parameters:
+        - name: pn
+          in: query
+          description: Product Part Number
+          required: true
+          type: string
+        - name: licensekey
+          in: query
+          description: Liecnse Key
+          required: true
+          type: string
+        - name: machineID
+          in: query
+          description: Machine ID
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/License'
+        '204':
+          description: License not found
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+  /partNum/quantity:
+    get:
+      tags:
+        - Validation
+      summary: ''
+      description: Validate AuthCode on perpetual SRP, return quantity.
+      produces:
+        - application/json
+      parameters:
+        - name: authcode
+          in: query
+          description: ''
+          required: true
+          type: string
+        - name: pn
+          in: query
+          description: Product Part Number
+          required: true
+          type: string
+        - name: licensekey
+          in: query
+          description: License Key
+          required: false
+          type: string
+        - name: machineID
+          in: query
+          description: Machine ID or Space ID
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Quantity'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+  /partNum/licenseQty:
+    get:
+      tags:
+        - Phase Out
+      summary: ''
+      description: 
+        Subscription SRP used, return license status through product part number
+        and space ID (For Ensaas)
+      produces:
+        - application/json
+      parameters:
+        - name: pn
+          in: query
+          description: Product Part Number
+          required: true
+          type: string
+        - name: id
+          in: query
+          description: space ID
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/License'
+        '204':
+          description: License not found
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+  /message:
+    get:
+      tags:
+        - Message
+      summary: ''
+      description: Get the message list with messageid, limit, type and ispublished.
+      produces:
+        - application/json
+      parameters:
+        - name: messageid
+          in: query
+          description: The lastest message ID
+          required: false
+          type: integer
+        - name: limit
+          in: query
+          description: The total number
+          required: false
+          type: integer
+        - name: type
+          in: query
+          description: The message type
+          required: false
+          type: string
+        - name: ispublished
+          in: query
+          description: The message is published or not
+          required: false
+          type: boolean
+        - name: detail
+          in: query
+          description: Show more information
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/MessageList'
+        '204':
+          description: DB object not found
+    put:
+      tags:
+        - Message
+      summary: ''
+      description: Add a new message or update the old message with messageid.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: The message object that needs to be added to the database
+          required: true
+          schema:
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Success'
+  /licenseFile/login:
+    get:
+      tags:
+        - License File
+      summary: ''
+      description: please bring the username/pwd via Authorization header.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/JWTResponse'
+  /licenseFile/getGroup:
+    post:
+      tags:
+        - License File
+      summary: ''
+      description: 'Get the group for license file'
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: The condition of query.
+          required: true
+          schema:
+            $ref: '#/definitions/LicenseFileRequestGroupQueryBody'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LicenseFileGroupList'
+  /licenseFile/getData:
+    post:
+      tags:
+        - License File
+      summary: ''
+      description: Get the data list of license file.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: The condition of query.
+          required: true
+          schema:
+            $ref: '#/definitions/LicenseFileRequestQueryBody'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LicenseFileList'
+  /licenseFile/{request_number}:
+    get:
+      tags:
+        - License File
+      summary: ''
+      description: Get the specific request with request number.
+      produces:
+        - application/json
+      parameters:
+      - name: "request_number"
+        in: "path"
+        description: "The number of request form. "
+        required: true
+        type: "string"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LicenseFileData'
+  /licenseFile:
+    post:
+      tags:
+        - License File
+      summary: ''
+      description: Insert license request information and wait PM for approval.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: The message object that needs to be added to the database.
+          required: true
+          schema:
+            $ref: '#/definitions/LicenseFileRequestBody'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Success'
+    put:
+      tags:
+        - License File
+      summary: ''
+      description: Approve or reject the specific request.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: The message object that needs to be added to the database
+          required: true
+          schema:
+            $ref: '#/definitions/LicenseFileApproveBody'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Success'
+  /licenseFile/resend/notify:
+    put:
+      tags:
+        - License File
+      summary: ''
+      description: Send a email for request the custom refill his form.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: The message object that needs to be added to the database
+          required: true
+          schema:
+            $ref: '#/definitions/LicenseFileResendBody'
+      responses:
+        '204':
+          description: No Content
+  /licenseFile/bind:
+    post:
+      tags:
+        - License File
+      summary: ''
+      description: Bind the serverid and generate the content of license file.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: The message object that needs to be added to the database.
+          required: true
+          schema:
+            $ref: '#/definitions/LicenseBindRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LicenseFileBindResponse'
+  /licenseFile/lrf/verify:
+    post:
+      tags:
+        - License File
+      summary: ''
+      description: Verify the content of license request file.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: The message object that needs to be added to the database.
+          required: true
+          schema:
+            $ref: '#/definitions/LicenseFileRequestVerifyBody'
+      responses:
+        '204':
+          description: No Content
+  /extend:
+    post:
+      tags:
+        - ReNew
+      summary: ''
+      description: Get the Extend Code and Collect the information of server.
+      produces:
+        - appication/json
+      parameters:
+        - in: body
+          name: body
+          description: The message object that needs to be added to the database
+          required: true
+          schema:
+            $ref: '#/definitions/ExtendBody'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Extend'
+  /offline/extend:
+    get:
+      tags:
+        - ReNew
+      summary: ''
+      description: Get the Extend Code and Collect the information of offline server.
+      produces:
+        - application/json
+      parameters:
+        - name: server_id
+          in: query
+          description: Encrypted server id
+          required: true
+          type: string
+        - name: release_version
+          in: query
+          description: The version of server.
+          required: true
+          type: string
+        - name: activate_name
+          in: query
+          description: The activate name of server.
+          required: true
+          type: string
+        - name: trial_code
+          in: query
+          description: The trial code of server.
+          required: true
+          type: integer
+        - name: product_name
+          in: query
+          description: The product name of server.
+          required: true
+          type: string
+        - name: cloud_info_env
+          in: query
+          description: The cloud enviroment of server.
+          required: true
+          type: string
+        - name: agent_count
+          in: query
+          description: The total agent count.
+          required: true
+          type: integer
+        - name: adv_count
+          in: query
+          description: The total agent count which belong to advantech.
+          required: true
+          type: integer
+        - name: ibmc_count
+          in: query
+          description: The total agent count which support IBMC.
+          required: true
+          type: integer
+        - name: protocol_version
+          in: query
+          description: The protocol version.
+          required: true
+          type: integer
+        - name: customer_name
+          in: query
+          description: The customer name.
+          required: true
+          type: string
+        - name: customer_email
+          in: query
+          description: The email of customer.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/OfflineExtend'
+  /channel/serverinfo:
+    post:
+      tags:
+        - Collect
+      summary: ''
+      description: Collect the inforamtion of server.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: The message object that needs to be added to the database
+          required: true
+          schema:
+            $ref: '#/definitions/ServerInfoBody'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerInfoResponse'
+  /channel/serverinfo/count:
+    get:
+      tags:
+        - Dashboard
+      summary: ''
+      description: Get the information about the number of servers
+      produces:
+        - application/json
+      parameters:
+        - name: active
+          in: query
+          description: The server which is active or not, default is true.
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerCountResponse'
+  /channel/serverinfo/type/count:
+    get:
+      tags:
+        - Dashboard
+      summary: ''
+      description: 
+        Get the count of server each types (onprimise, azure, aws, aliyun, gcp,
+        aks, dss, ensaas) according to year, month and rbu.
+      produces:
+        - application/json
+      parameters:
+        - name: year
+          in: query
+          description: The year which you want to query
+          required: true
+          type: string
+        - name: month
+          in: query
+          description: The month which you want to query
+          required: true
+          type: string
+        - name: rbu
+          in: query
+          description: The specific RBU which you want to query
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ActiveServerTypeCountResponse'
+  /channel/serverinfo/monthdata/exist:
+    get:
+      tags:
+        - Dashboard
+      summary: ''
+      description: Return true if the data is exist in specific month, or not return false.
+      produces:
+        - application/json
+      parameters:
+        - name: year
+          in: query
+          description: The year which you want to query
+          required: true
+          type: string
+        - name: month
+          in: query
+          description: The month which you want to query
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/BooleanResponse'
+  /channel/serverinfo/rbu/count/:
+    get:
+      tags:
+        - Dashboard
+      summary: ''
+      description: Get the information about the number of servers which belong to rbu
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerRbuCountResponse'
+  /channel/serverinfo/ip/{rbu}:
+    get:
+      tags:
+        - Dashboard
+      summary: ''
+      description: Get the public IP of servers for the specific RBU.
+      produces:
+        - application/json
+      parameters:
+        - name: rbu
+          in: path
+          description: Regional Bussiness Unit
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerIPResponse'
+  /channel/serverinfo/devicecount:
+    get:
+      tags:
+        - Dashboard
+      summary: ''
+      description: Get the information about the number of devices
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DeviceCountResponse'
+  /channel/serverinfo/histcount:
+    get:
+      tags:
+        - Dashboard
+      summary: ''
+      description: Get the information about the total number of devices and servers.
+      produces:
+        - application/json
+      parameters:
+        - name: start_ts
+          in: query
+          description: The timestamp of start
+          required: true
+          type: integer
+        - name: end_ts
+          in: query
+          description: The timestamp of end
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/HistCountResponse'
+  /channel/serverinfo/customer/{serverid}:
+    get:
+      tags:
+        - Collect
+      summary: ''
+      description: Get all infomation about customer
+      produces:
+        - application/json
+      parameters:
+        - name: serverid
+          in: path
+          description: Server ID
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CustomerResponse'
+  /customerinfo/lockdown:
+    post:
+      tags:
+        - LockDown Utility
+      summary: ''
+      description: Insert the cutomer infomation for lockdown utility.
+      produces:
+        - appication/json
+      parameters:
+        - in: body
+          name: body
+          description: 
+            The message object that needs to be added to the database. Company,
+            Name and Email is required.
+          required: true
+          schema:
+            $ref: '#/definitions/CustomerInfoBody'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CustomerInfoRes'
+  /customerinfo/eas/statistic/{type}:
+    get:
+      tags:
+        - Edge AI Suite
+      summary: ''
+      description: Get the count distributon according to type.
+      produces:
+        - appication/json
+      parameters:
+        - name: type
+          in: path
+          description: 
+            You can choose one of "country", "vertical", "device", "os",
+            "version".
+          required: true
+          type: string
+        - name: starttime
+          in: query
+          description: The timestamp of start
+          required: false
+          type: integer
+        - name: endtime
+          in: query
+          description: The timestamp of end
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerLocationCountByRbuResponse'
+  /eas/device/click/{platform}:
+    get:
+      tags:
+        - Edge AI Suite
+      summary: ''
+      description: Get the count distributon according to the device platform.
+      produces:
+        - appication/json
+      parameters:
+        - name: platform
+          in: path
+          description: 
+            You can choose one of "intel_cpu", "intel_igraphics", "intel_vpu",
+            "amd_cpu", "amd_graphics", "amd_igraphics", "nvidia_graphics",
+            "all".
+          required: true
+          type: string
+        - name: starttime
+          in: query
+          description: The timestamp of start
+          required: false
+          type: integer
+        - name: endtime
+          in: query
+          description: The timestamp of end
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/EdgeAISuiteDevivceCountRes'
+  /customerinfo/eas/last_user/{amount}:
+    get:
+      tags:
+        - Edge AI Suite
+      summary: ''
+      description: Get the latest customer list.
+      produces:
+        - appication/json
+      parameters:
+        - name: amount
+          in: path
+          description: The amount of the customer list.
+          required: true
+          type: integer
+        - name: starttime
+          in: query
+          description: The timestamp of start
+          required: false
+          type: integer
+        - name: endtime
+          in: query
+          description: The timestamp of end
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CustomerInfoDetailRes'
+  /customerinfo/eas:
+    post:
+      tags:
+        - Edge AI Suite
+      summary: ''
+      description: Insert the cutomer infomation for Edge AI Suite (EAS).
+      produces:
+        - appication/json
+      parameters:
+        - in: body
+          name: body
+          description: 
+            The message object that needs to be added to the database. Company,
+            Name and Email is required.
+          required: true
+          schema:
+            $ref: '#/definitions/CustomerInfoBody_eas'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CustomerInfoRes'
+  /eas:
+    post:
+      tags:
+        - Edge AI Suite
+      summary: ''
+      description: Insert the information for Edge AI Suite (EAS).
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: All of the information of Edge AI Suite.
+          required: true
+          schema:
+            $ref: '#/definitions/EdgeAIInfoBody'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CustomerInfoRes'
+  /channel/serverinfo/layout/location/count:
+    get:
+      tags:
+        - Layout
+      summary: ''
+      description: Get the count about the location of servers.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerLocationCountResponse'
+  /channel/serverinfo/layout/rbus:
+    get:
+      tags:
+        - Layout
+      summary: ''
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ActivateNamesResponse'
+  /channel/serverinfo/layout/location/count/{rbu}:
+    get:
+      tags:
+        - Layout
+      summary: ''
+      description: Get the count about the location of servers.
+      produces:
+        - application/json
+      parameters:
+        - name: rbu
+          in: path
+          description: Regional Bussiness Unit
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerLocationCountByRbuResponse'
+  /channel/serverinfo/layout/activate_names:
+    get:
+      tags:
+        - Layout
+      summary: ''
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ActivateNamesResponse'
+  /channel/serverinfo/layout/activate_names/{activate_name}:
+    get:
+      tags:
+        - Layout
+      summary: ''
+      description: Get all infomation about serverinfo for specific activate name.
+      produces:
+        - application/json
+      parameters:
+        - name: activate_name
+          in: path
+          description: Activate Name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerInfosResponse'
+  /channel/serverinfo/layout/product/count:
+    get:
+      tags:
+        - Layout
+      summary: ''
+      description: Get the count for each product.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerProductCountResponse'
+  /channel/serverinfo/layout/trend/count:
+    get:
+      tags:
+        - Layout
+      summary: ''
+      description: 
+        Get the count and trend of server each types (onprimise, azure, aws,
+        aliyun, gcp, aks, dss, ensaas).
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerTypeTrendResponse'
+  /channel/serverinfo/layout/active_server/count:
+    get:
+      tags:
+        - Layout
+      summary: ''
+      description: 
+        Get the count of server each types (onprimise, azure, aws, aliyun, gcp,
+        aks, dss, ensaas) according to year, month and rbu.
+      produces:
+        - application/json
+      parameters:
+        - name: year
+          in: query
+          description: The year which you want to query
+          required: true
+          type: string
+        - name: month
+          in: query
+          description: The month which you want to query
+          required: true
+          type: string
+        - name: rbu
+          in: query
+          description: The specific RBU which you want to query
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ActiveServerTypeCountResponse'
+  /channel/serverinfo/layout/trend/change_list:
+    get:
+      tags:
+        - Layout
+      summary: ''
+      description: Get all server info which is increased or decreased by weekly.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ChangedServerResponse'
+  /sap/pn:
+    get:
+      tags:
+        - SAP
+      summary: ''
+      description: Get the information of part numbers
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SapInfoPartNumResponse'
+  /sap/login:
+    get:
+      tags:
+        - SAP
+      summary: ''
+      description: Please bring the username/pwd via Authorization header.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SapJWTResponse'
+        '401':
+          description: Username or password is incorrect
+          schema:
+            $ref: '#/definitions/SapJWTResponseInvalid'
+        '403':
+          description: The account needs to verify
+          schema:
+            $ref: '#/definitions/SapJWTResponseInvalid'
+  /sap/signup:
+    post:
+      tags:
+        - SAP
+      summary: ''
+      description: Sign up for an account and send an email for activation.
+      parameters:
+        - in: body
+          name: body
+          description: The information abount username and password.
+          required: true
+          schema:
+            $ref: '#/definitions/SapSignUpBody'
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: OK
+  /sap/items/estimate/amount:
+    post:
+      tags:
+        - SAP
+      summary: ''
+      description: Get the device amount for the unassign items
+      parameters:
+        - in: body
+          name: body
+          description: The array list of unassign items.
+          required: true
+          schema:
+            $ref: '#/definitions/SapItemsEstimateAmountBody'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SapItemsEstimateAmountReseponse'
+  /sap/root/items:
+    get:
+      tags:
+        - SAP
+      summary: ''
+      description: Get all informations for each item (For root only)
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SapRootItemsReseponse'
+  /sap/items/unbound:
+    get:
+      tags:
+        - SAP
+      summary: ''
+      description: Get all of the items
+      produces:
+        - application/json
+      parameters:
+        - name: page_size
+          in: query
+          description: The page size.
+          required: true
+          type: integer
+        - name: number
+          in: query
+          description: The page number. Should be greater than equal 1.
+          required: true
+          type: integer
+        - name: order_type
+          in: query
+          description: Should be desc or asc, default is desc.
+          required: false
+          type: string
+        - name: order_by
+          in: query
+          description: Should be requireNumber, billingNoteId, orderNumber, partNumber, serverId, default is creationTime.
+          required: false
+          type: string
+        - name: search
+          in: query
+          description: Find matching data from requireNumber, billingNoteId, orderNumber, partNumber, serverId
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SapItemsResponse'
+  /sap/items/bound/group:
+    get:
+      tags:
+        - SAP
+      summary: ''
+      description: Get all of the items group by groupId.
+      produces:
+        - application/json
+      parameters:
+        - name: page_size
+          in: query
+          description: The page size.
+          required: true
+          type: integer
+        - name: number
+          in: query
+          description: The page number. Should be greater than equal 1.
+          required: true
+          type: integer
+        - name: order_type
+          in: query
+          description: Should be desc or asc, default is desc.
+          required: false
+          type: string
+        - name: order_by
+          in: query
+          description: Should be requireNumber, billingNoteId, orderNumber, partNumber, serverId, default is creationTime.
+          required: false
+          type: string
+        - name: search
+          in: query
+          description: Find matching data from requireNumber, billingNoteId, orderNumber, partNumber, serverId
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SapItemsGroupResponse'
+  /sap/items/assign:
+    put:
+      tags:
+        - SAP
+      summary: ''
+      description: Assign your own items to other mail.
+      parameters:
+        - in: body
+          name: body
+          description: You should specify which item is assigned to which email.
+          required: true
+          schema:
+            $ref: '#/definitions/SapAssignBody'
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: OK
+  /sap/bind:
+    put:
+      tags:
+        - SAP
+      summary: ''
+      description: Provide LRF with the specified item for binding
+      parameters:
+        - in: body
+          name: body
+          description: Spcific your items number and LRF
+          required: true
+          schema:
+            $ref: '#/definitions/SapBindBody'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SapBindResponse'
+  /sap/bind/group:
+    put:
+      tags:
+        - SAP
+      summary: ''
+      description: Provide LRF with the item list for binding.
+      parameters:
+        - in: body
+          name: body
+          description: Spcific your item list and LRF
+          required: true
+          schema:
+            $ref: '#/definitions/SapBindItemListBody'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SapBindResponse'
+  /sap/password/resend:
+    put:
+      tags:
+        - SAP
+      summary: ''
+      description: Reset password for specified emails, and send notification emails. Can be used to forget password.
+      parameters:
+        - in: body
+          name: body
+          description: Spcific your email.
+          required: true
+          schema:
+            $ref: '#/definitions/SapResendBody'
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: OK
+  /sap/password/reset:
+    put:
+      tags:
+        - SAP
+      summary: ''
+      description: Change password.
+      parameters:
+        - in: body
+          name: body
+          description: Spcific the new passowrd whcih you want to change.
+          required: true
+          schema:
+            $ref: '#/definitions/SapResetPassword'
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: OK
+  /sap/version:
+    get:
+      tags:
+        - SAP
+      summary: ''
+      description: Get the version of "DeviceOn License Management".
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SapVersioniResponse'
+  /sap/events:
+    get:
+      tags:
+        - SAP
+      summary: ''
+      description: Get the events for specific account.
+      produces:
+        - application/json
+      parameters:
+        - name: page_size
+          in: query
+          description: The page size.
+          required: true
+          type: integer
+        - name: number
+          in: query
+          description: The page number. Should be greater than equal 1.
+          required: true
+          type: integer
+        - name: order_type
+          in: query
+          description: Should be desc or asc, default is desc.
+          required: false
+          type: string
+        - name: order_by
+          in: query
+          description: Default is creationTime.
+          required: false
+          type: string
+        - name: search
+          in: query
+          description: Find matching data from message
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SapEventsResponse'
+  /sap/split:
+    put:
+      tags:
+        - SAP
+      summary: ''
+      description: Splitting one of license into smaller licenses.
+      parameters:
+        - in: body
+          name: body
+          description: Spcific the new passowrd whcih you want to change.
+          required: true
+          schema:
+            $ref: '#/definitions/SapSplitLicense'
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: OK
+definitions:
+  License:
+    type: object
+    properties:
+      authcode:
+        type: string
+        description: The code for validation
+      number:
+        type: integer
+        description: License quantity purchased at the time
+      IsValidTransaction:
+        type: boolean
+        description: Customer subscription status, Boolean, true = valid EnSaaS & SRP)
+      OrgName:
+        type: string
+        description: EnSaaS Org Name
+      AccountType:
+        type: string
+        description: 'Customer membership: PremierVIP, VIP, Regular, WISELead'
+      AppVersion:
+        type: string
+        description: Subscribed SRP version
+    xml:
+      name: License Inforamtion
+  Error:
+    type: object
+    properties:
+      ErrorCode:
+        type: integer
+        description: The error code for input argument invalid.
+      Description:
+        type: string
+        description: The description for the error
+      Field:
+        type: string
+        description: Which parameter is wrong
+      FieldValue:
+        type: string
+        description: The value of wrong parameter
+  AuthCode:
+    type: object
+    properties:
+      authcode:
+        type: string
+        description: The code for validation
+      number:
+        type: integer
+        description: The purchased quantity of the licensekey
+  Quantity:
+    type: object
+    properties:
+      number:
+        type: integer
+        description: The purchased quantity
+  MessageList:
+    type: object
+    properties:
+      latest_id:
+        type: integer
+      messages:
+        type: array
+        items:
+          type: object
+          properties:
+            message_id:
+              type: integer
+            content:
+              type: string
+            type:
+              type: string
+            published:
+              type: boolean
+            timestamp:
+              type: integer
+  Message:
+    type: object
+    required:
+      - content
+      - type
+      - published
+      - start_ts
+      - end_ts
+    properties:
+      message_id:
+        type: integer
+      content:
+        type: string
+      type:
+        type: string
+      published:
+        type: boolean
+      start_ts:
+        type: integer
+      end_ts:
+        type: integer
+  Success:
+    type: object
+    properties:
+      result:
+        type: boolean
+  ExtendBody:
+    type: object
+    required:
+      - server_id
+      - server_info
+    properties:
+      protocol_version:
+        type: integer
+      server_id:
+        type: string
+      server_info:
+        type: object
+        properties:
+          server_id:
+            type: string
+          host_name:
+            type: string
+          release_version:
+            type: string
+          activate_name:
+            type: string
+          trial_code:
+            type: integer
+          trial_remain_days:
+            type: integer
+          adv_device_limit:
+            type: integer
+          nonadv_device_limit:
+            type: integer
+          assigned_nonadv_devices_count:
+            type: integer
+          totoal_nonadv_devices_count:
+            type: integer
+          assinged_adv_devices_count:
+            type: integer
+          total_adv_devices_count:
+            type: integer
+          os_name:
+            type: string
+          cpu_name:
+            type: string
+          cpu_arch:
+            type: string
+          cpu_core:
+            type: integer
+          total_memory:
+            type: integer
+          product_name:
+            type: string
+          total_storage:
+            type: array
+            items:
+              type: object
+              properties:
+                volume:
+                  type: string
+                bytes_free:
+                  type: integer
+                bytes_total:
+                  type: integer
+          devices_info:
+            type: array
+            items:
+              type: object
+              properties:
+                agent_id:
+                  type: string
+                agent_version:
+                  type: string
+                platform:
+                  type: string
+                connected:
+                  type: boolean
+                login_ts:
+                  type: integer
+          customer:
+            type: object
+            properties:
+              company:
+                type: string
+              name:
+                type: string
+              email:
+                type: string
+              country:
+                type: string
+              vertical:
+                type: string
+          cloud_info:
+            type: object
+            properties:
+              env:
+                type: string
+              subscription_id:
+                type: string
+              vm_type:
+                type: string
+              tags:
+                type: string
+              ip:
+                type: string
+  Extend:
+    type: object
+    properties:
+      code:
+        type: string
+      blacklist:
+        type: array
+        items:
+          type: string
+          properties:
+            platform:
+              type: string
+  OfflineExtend:
+    type: object
+    properties:
+      code:
+        type: string
+  ServerInfoBody:
+    type: object
+    required:
+      - server_info
+    properties:
+      server_info:
+        type: object
+        properties:
+          server_id:
+            type: string
+          host_name:
+            type: string
+          release_version:
+            type: string
+          activate_name:
+            type: string
+          trial_code:
+            type: integer
+          trial_remain_days:
+            type: integer
+          adv_device_limit:
+            type: integer
+          nonadv_device_limit:
+            type: integer
+          assigned_nonadv_devices_count:
+            type: integer
+          totoal_nonadv_devices_count:
+            type: integer
+          assinged_adv_devices_count:
+            type: integer
+          total_adv_devices_count:
+            type: integer
+          os_name:
+            type: string
+          cpu_name:
+            type: string
+          cpu_arch:
+            type: string
+          cpu_core:
+            type: string
+          total_memory:
+            type: integer
+          product_name:
+            type: string
+          total_storage:
+            type: array
+            items:
+              type: object
+              properties:
+                volume:
+                  type: string
+                bytes_free:
+                  type: integer
+                bytes_total:
+                  type: integer
+          devices_info:
+            type: array
+            items:
+              type: object
+              properties:
+                agent_id:
+                  type: string
+                agent_version:
+                  type: string
+                platform:
+                  type: string
+                connected:
+                  type: boolean
+                login_ts:
+                  type: integer
+          customer:
+            type: object
+            properties:
+              company:
+                type: string
+              name:
+                type: string
+              email:
+                type: string
+              country:
+                type: string
+              vertical:
+                type: string
+          cloud_info:
+            type: object
+            properties:
+              env:
+                type: string
+              subscription_id:
+                type: string
+              vm_type:
+                type: string
+              tags:
+                type: string
+              ip:
+                type: string
+  LicenseFileGroupList:
+    type: object
+    properties:
+      total:
+        type: integer
+      licenses:
+        type: array
+        items:
+          properties:
+            count:
+              type: integer
+            server_id:
+              type: string
+  LicenseFileData:
+    type: object
+    properties:
+      request_id:
+        type: integer
+      request_number:
+        type: string
+      name:
+        type: string
+      bussiness_mail:
+        type: string
+      device_amount:
+        type: integer
+      type:
+        type: string
+      job_title: 
+        type: string
+      company:
+        type: string
+      phone:
+        type: string
+      country:
+        type: string
+      sales_mail:
+        type: string
+      apply_ts:
+        type: integer
+      approved:
+        type: boolean
+      lrf_content:
+        type: string
+      allow_approved:
+        type: boolean
+      server_id:
+        type: string
+      authorizing_officer:
+        type: string
+  LicenseFileList:
+    type: object
+    properties:
+      total:
+        type: integer
+      licenses:
+        type: array
+        items:
+          properties:
+            request_id:
+              type: integer
+            request_number:
+              type: string
+            name:
+              type: string
+            bussiness_mail:
+              type: string
+            device_amount:
+              type: integer
+            type:
+              type: string
+            job_title: 
+              type: string
+            company:
+              type: string
+            phone:
+              type: string
+            country:
+              type: string
+            sales_mail:
+              type: string
+            apply_ts:
+              type: integer
+            approved:
+              type: boolean
+            lrf_content:
+              type: string
+            allow_approved:
+              type: boolean
+            server_id:
+              type: string
+            authorizing_officer:
+              type: string
+            reason_description:
+              type: string
+  LicenseFileApproveBody:
+    type: object
+    properties:
+      request_id:
+        type: integer
+      approve:
+        type: boolean
+      receiver_mails:
+        type: array
+        items:
+          type: object
+          properties:
+            mail:
+              type: string
+            cc:
+              type: array
+              items:
+                properties:
+                  mail:
+                    type: string
+  LicenseFileResendBody:
+    type: object
+    properties:
+      request_id:
+        type: integer
+      receiver_mails:
+        type: array
+        items:
+          type: object
+          properties:
+            mail:
+              type: string
+            cc:
+              type: array
+              items:
+                properties:
+                  mail:
+                    type: string
+  LicenseFileRequestGroupQueryBody:
+    type: object
+    properties:
+      group:
+        type: array
+        items:
+          type: object
+          properties:
+            field:
+              type: string
+      page:
+        type: object
+        properties:
+          size:
+            type: integer
+          number:
+            type: integer
+      order:
+        type: object
+        properties:
+          field:
+            type: string
+          type:
+            type: string
+      where:
+        type: object
+        properties:
+          processable:
+            type: boolean
+  LicenseFileRequestQueryBody:
+    type: object
+    properties:
+      page:
+        type: object
+        properties:
+          size:
+            type: integer
+          number:
+            type: integer
+      order:
+        type: object
+        properties:
+          field:
+            type: string
+          type:
+            type: string
+      like:
+        type: array
+        items:
+          type: object
+          properties:
+            field:
+              type: string
+            like:
+              type: string
+  LicenseFileRequestVerifyBody:
+    type: object
+    properties:
+      license_request_content:
+        type: string
+  LicenseBindRequest:
+    type: object
+    properties:
+      request_number:
+        type: string
+      license_request_content:
+        type: string
+      device_amount:
+        type: integer
+      type:
+        type: string
+      bussiness_email:
+        type: string
+      company:
+        type: string
+      country:
+        type: string
+      apply_ts:
+        type: integer
+  LicenseFileBindResponse:
+    type: object
+    properties:
+      license_content:
+        type: string
+      server_id:
+        type: string
+  LicenseFileRequestBody:
+    type: object
+    properties:
+      request_number:
+        type: string
+      license_request_content:
+        type: string
+      device_amount:
+        type: integer
+      type:
+        type: string
+      custom_name:
+        type: string
+      bussiness_email:
+        type: string
+      job_title:
+        type: string
+      company:
+        type: string
+      phone:
+        type: string
+      country:
+        type: string
+      sales_email:
+        type: string
+      apply_ts:
+        type: integer
+  ServerInfoResponse:
+    type: object
+    properties:
+      blacklist:
+        type: array
+        items:
+          properties:
+            platform:
+              type: string
+  ServerLocationCountResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        country:
+          type: string
+        rbu:
+          type: string
+        count:
+          type: integer
+  ServerLocationCountByRbuResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        count:
+          type: integer
+  ServerProductCountResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        count:
+          type: integer
+  ServerCountResponse:
+    type: object
+    properties:
+      status:
+        type: object
+        properties:
+          active:
+            type: integer
+          inactive:
+            type: integer
+      license:
+        type: object
+        properties:
+          paid:
+            type: integer
+          free:
+            type: integer
+      type:
+        type: object
+        properties:
+          standalone:
+            type: object
+            properties:
+              name:
+                type: string
+              count:
+                type: integer
+          aks:
+            type: object
+            properties:
+              name:
+                type: string
+              count:
+                type: integer
+          ensaas:
+            type: object
+            properties:
+              name:
+                type: string
+              count:
+                type: integer
+          dss:
+            type: object
+            properties:
+              name:
+                type: string
+              count:
+                type: integer
+  ServerRbuCountResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        server_count:
+          type: integer
+        device_count:
+          type: integer
+  ServerIPResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        serverid:
+          type: string
+        public_ip:
+          type: string
+        active:
+          type: boolean
+        device_count:
+          type: integer
+        coordinate:
+          type: array
+          items:
+            type: integer
+  DeviceCountResponse:
+    type: object
+    properties:
+      nonadv:
+        type: object
+        properties:
+          name:
+            type: string
+          total:
+            type: integer
+          active:
+            type: integer
+      adv:
+        type: object
+        properties:
+          name:
+            type: string
+          total:
+            type: integer
+          active:
+            type: integer
+          platform:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                count:
+                  type: integer
+  CustomerResponse:
+    type: object
+    properties:
+      company:
+        type: string
+      name:
+        type: string
+      email:
+        type: string
+      country:
+        type: string
+      vertical:
+        type: string
+  HistCountResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        server:
+          type: integer
+        device:
+          type: integer
+        timestamp:
+          type: integer
+  CustomerInfoBody:
+    type: object
+    properties:
+      company:
+        type: string
+      name:
+        type: string
+      email:
+        type: string
+      country:
+        type: string
+      vertical:
+        type: string
+  CustomerInfoRes:
+    type: object
+    properties:
+      result:
+        type: boolean
+  CustomerInfoBody_eas:
+    type: object
+    properties:
+      uuid:
+        type: string
+      company:
+        type: string
+      name:
+        type: string
+      email:
+        type: string
+      country:
+        type: string
+      vertical:
+        type: string
+      model:
+        type: string
+      version:
+        type: string
+      os:
+        type: string
+      token:
+        type: string
+  CustomerInfoDetailRes:
+    type: object
+    properties:
+      date:
+        type: integer
+      customer:
+        type: string
+      country:
+        type: string
+      vertical:
+        type: string
+      country_from_ip:
+        type: string
+  EdgeAISuiteDevivceCountRes:
+    type: object
+    properties:
+      System Monitoring:
+        type: integer
+      Benchmark:
+        type: integer
+      Object detection:
+        type: integer
+      Face detection:
+        type: integer
+      Pose estimation:
+        type: integer
+      Person detection:
+        type: integer
+  EdgeAIInfoBody:
+    type: object
+    properties:
+      uuid:
+        type: string
+      model_name:
+        type: string
+      os:
+        type: string
+      version:
+        type: string
+      system_monitoring:
+        type: integer
+      benchmark:
+        type: integer
+      intel_cpu:
+        type: object
+        properties:
+          name:
+            type: string
+          object_detection:
+            type: integer
+          face_detection:
+            type: integer
+          pose_estimation:
+            type: integer
+          person_detection:
+            type: integer
+      intel_internal_graphics:
+        type: object
+        properties:
+          name:
+            type: string
+          object_detection:
+            type: integer
+          face_detection:
+            type: integer
+          pose_estimation:
+            type: integer
+          person_detection:
+            type: integer
+      intel_vpu:
+        type: object
+        properties:
+          name:
+            type: string
+          object_detection:
+            type: integer
+          face_detection:
+            type: integer
+          pose_estimation:
+            type: integer
+          person_detection:
+            type: integer
+      nvidia_graphics:
+        type: object
+        properties:
+          name:
+            type: string
+          object_detection:
+            type: integer
+          face_detection:
+            type: integer
+          pose_estimation:
+            type: integer
+          person_detection:
+            type: integer
+      amd_cpu:
+        type: object
+        properties:
+          name:
+            type: string
+          object_detection:
+            type: integer
+          face_detection:
+            type: integer
+          pose_estimation:
+            type: integer
+          person_detection:
+            type: integer
+      amd_internal_graphics:
+        type: object
+        properties:
+          name:
+            type: string
+          object_detection:
+            type: integer
+          face_detection:
+            type: integer
+          pose_estimation:
+            type: integer
+          person_detection:
+            type: integer
+      amd_graphics:
+        type: object
+        properties:
+          name:
+            type: string
+          object_detection:
+            type: integer
+          face_detection:
+            type: integer
+          pose_estimation:
+            type: integer
+          person_detection:
+            type: integer
+      start_time:
+        type: integer
+      end_time:
+        type: integer
+  ActivateNamesResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+  ServerTypeTrendResponse:
+    type: object
+    properties:
+      begints:
+        type: integer
+      endts:
+        type: integer
+      items:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            count:
+              type: integer
+            trend:
+              type: number
+            increase:
+              type: integer
+  ActiveServerTypeCountResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            count:
+              type: array
+              items:
+                type: object
+                properties:
+                  location:
+                    type: string
+                  server_count:
+                    type: integer
+                  device_count:
+                    type: integer
+            ts:
+              type: integer
+  BooleanResponse:
+    type: object
+    properties:
+      result:
+        type: boolean
+  ServerInfosResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        location:
+          type: string
+        ip:
+          type: string
+        serverid:
+          type: string
+        host:
+          type: string
+        version:
+          type: string
+        paid:
+          type: boolean
+        product:
+          type: string
+        mgt_devices_adv:
+          type: integer
+        mgt_devices_nonadv:
+          type: integer
+        increased:
+          type: boolean
+  SapInfoPartNumResponse:
+    type: object
+    properties:
+      partNumbers:
+        type: array
+        items:
+          type: object
+          properties:
+            partNumber:
+              type: string
+            licenseServerName:
+              type: string
+            validDateTo:
+              type: string
+  ChangedServerResponse:
+    type: object
+    properties:
+      increase:
+        type: array
+        items:
+          type: object
+          properties:
+            location:
+              type: string
+            ip:
+              type: string
+            serverid:
+              type: string
+            host:
+              type: string
+            version:
+              type: string
+            paid:
+              type: boolean
+            product:
+              type: string
+            mgt_devices_adv:
+              type: integer
+            mgt_devices_nonadv:
+              type: integer
+            activate_name:
+              type: string
+      decrease:
+        type: array
+        items:
+          type: object
+          properties:
+            location:
+              type: string
+            ip:
+              type: string
+            serverid:
+              type: string
+            host:
+              type: string
+            version:
+              type: string
+            paid:
+              type: boolean
+            product:
+              type: string
+            mgt_devices_adv:
+              type: integer
+            mgt_devices_nonadv:
+              type: integer
+            activate_name:
+              type: string
+  JWTResponse:
+    type: object
+    properties:
+      result:
+        type: boolean
+      token:
+        type: string
+  SapSignUpBody:
+    type: object
+    properties:
+      name:
+        type: string
+      mail:
+        type: string
+      password:
+        type: string
+  SapItemsEstimateAmountBody:
+    type: array
+    items:
+      type: object
+      properties:
+        requireNumber:
+          type: string
+  SapItemsEstimateAmountReseponse:
+    type: object
+    properties:
+      amount:
+        type: integer
+  SapRootItemsReseponse:
+    type: array
+    items:
+      type: object
+      properties:
+        mail:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              requireNumber:
+                type: string
+              billingNoteId:
+                type: string
+              orderNumber:
+                type: string
+              partNumber:
+                type: string
+              parent:
+                type: string
+              isSplit:
+                type: boolean
+              isRevoke:
+                type: boolean
+              deviceAmount:
+                type: integer
+              bindedAmount:
+                type: integer
+              licenseServerName:
+                type: string
+              licenseRequestContent:
+                type: string
+              licenseContent:
+                type: string
+              serverId:
+                type: string
+              groupId:
+                type: string
+              creationTime:
+                type: integer
+              lastUpdated:
+                type: integer
+  SapItemsResponse:
+    type: object
+    properties:
+      total:
+        type: integer
+      items:
+        type: array
+        items:
+          type: object
+          properties:
+            requireNumber:
+              type: string
+            billingNoteId:
+              type: string
+            orderNumber:
+              type: string
+            partNumber:
+              type: string
+            deviceAmount:
+              type: integer
+            bindedAmount:
+              type: integer
+            licenseServerName:
+              type: string
+            licenseRequestContent:
+              type: string
+            licenseContent:
+              type: string
+            serverId:
+              type: string
+            groupId:
+              type: string
+            creationTime:
+              type: integer
+            lastUpdated:
+              type: integer
+  SapEventsResponse:
+    type: object
+    properties:
+      total:
+        type: integer
+        example: 1
+      events:
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+              example: 'split'
+            licenseId:
+              type: string
+              example: 'bfbe7e86-a09b-4a47-90e4-b706af646118'
+            quantity:
+              type: integer
+              example: 50
+            splitLicenses:
+              type: array
+              items:
+                type: object
+                properties:
+                  licenseId:
+                    type: string
+                    example: '6f445e04-4859-416e-a57c-e969c3ecdd87'
+                  quantity:
+                    type: integer
+                    example: 24
+            multiLicense:
+              type: object
+              properties:
+                serverId:
+                  type: string
+                  example: 0000C400AD361B74
+                licenses:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      licenseId:
+                        type: string
+                        example: '6f445e04-4859-416e-a57c-e969c3ecdd87'
+                      quantity:
+                        type: integer
+                        example: 24
+            message:
+              type: string
+              example: 'The license is spilt to 10, 20, 20'
+            creationTime:
+              type: integer
+              example: 1691658240192
+  SapItemsGroupResponse:
+    type: object
+    properties:
+      total:
+        type: integer
+      groups:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            items:
+              type: array
+              items:
+                type: object
+                properties:
+                  requireNumber:
+                    type: string
+                  billingNoteId:
+                    type: string
+                  orderNumber:
+                    type: string
+                  partNumber:
+                    type: string
+                  deviceAmount:
+                    type: integer
+                  bindedAmount:
+                    type: integer
+                  licenseServerName:
+                    type: string
+                  licenseRequestContent:
+                    type: string
+                  licenseContent:
+                    type: string
+                  serverId:
+                    type: string
+                  groupId:
+                    type: string
+                  creationTime:
+                    type: integer
+                  lastUpdated:
+                    type: integer
+  SapVersioniResponse:
+    type: object
+    properties:
+      version:
+        type: string
+        example: 1.0.2
+  SapJWTResponse:
+    type: object
+    properties:
+      token:
+        type: string
+  SapJWTResponseInvalid:
+    type: object
+    properties:
+      message:
+        type: string
+  SapAssignBody:
+    type: object
+    properties:
+      assignedMail:
+        type: string
+      requireNumber:
+        type: string
+  SapBindBody:
+    type: object
+    properties:
+      requireNumber:
+        type: string
+      licenseRequestContent:
+        type: string
+  SapBindItemListBody:
+    type: object
+    properties:
+      licenseRequestContent:
+        type: string
+      items:
+        type: array
+        items:
+          properties:
+            requireNumber:
+              type: string
+  SapBindResponse:
+    type: object
+    properties:
+      licenseContent:
+        type: string
+      serverId:
+        type: string
+  SapResendBody:
+    type: object
+    properties:
+      mail:
+        type: string
+  SapResetPassword:
+    type: object
+    properties:
+      password:
+        type: string
+      newPassword:
+        type: string
+  SapSplitLicense:
+    type: object
+    properties:
+      requireNumber:
+        type: string
+        example: 509e2fa4-365e-48a4-ab22-8506aaf89d63
+      amountGroup:
+        type: string
+        example: 4, 6
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
