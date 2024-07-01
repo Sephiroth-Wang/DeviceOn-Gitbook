@@ -83,13 +83,39 @@ DeviceOn uses **VNC** (Virtual Network Computing) technology for encrypted remot
 
 * For DeviceOn Agent versions greater than v1.4:
 
-To enable more detailed logging, open **log.ini** at
+To enable more detailed logging, modify **log.ini** at
+
+(Windows)
 
 ```
 C:\Program Files (x86)\Advantech\DeviceOn Agent
 ```
 
-Change the **log\_level from 4 to 5**. Then restart the **Logd** service.&#x20;
+(Ubuntu)
+
+```
+/usr/local/AgentService
+```
+
+1. Change the **`log_level` from 4 to 5**.&#x20;
+
+```ini
+#log_level=4
+```
+
+&#x20;   to
+
+```ini
+log_level=5
+```
+
+2. Save the **log.ini**
+
+<!---->
+
+3. Reboot the device to apply modification.&#x20;
+
+
 
 More verbose logs will be written to:
 
