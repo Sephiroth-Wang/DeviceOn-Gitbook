@@ -74,6 +74,7 @@
 * [📦 Application (OTA)](lab/application-ota/README.md)
   * [Package and Deploy your Application](lab/application-ota/package-and-deploy-your-application.md)
   * [Security Update for Windows](lab/application-ota/security-update-for-windows.md)
+  * [Upgrade DeviceOn Agent in On-premises DeviceOn Server](lab/application-ota/upgrade-deviceon-agent-in-on-premises-deviceon-server.md)
 
 ***
 
