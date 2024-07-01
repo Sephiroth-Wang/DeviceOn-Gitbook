@@ -113,9 +113,15 @@ log_level=5
 
 <!---->
 
-3. Reboot the device to apply modification.&#x20;
+3. Apply configuration. Restart **`logd`** service, or just reboot the device.
 
+&#x20;   In Task Manager
 
+<img src="../../.gitbook/assets/2024-07-01_112427.png" alt="" data-size="original">
+
+&#x20;   In Services
+
+<img src="../../.gitbook/assets/2024-07-01_112530.png" alt="" data-size="original">
 
 More verbose logs will be written to:
 
