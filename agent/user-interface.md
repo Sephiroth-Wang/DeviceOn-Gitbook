@@ -58,13 +58,13 @@ If **Acronis** (for backup/recovery) or **Trellix (McAfee)** (for system protect
 
     <figure><img src="https://hackmd.io/_uploads/SyHK1FYEp.png" alt=""><figcaption></figcaption></figure>
 3.  Enter the **Company Name** and **Serial Number** from the sticker on the Advantech hardware. Make sure to enter the **Company Name** and **Serial Numbe**r exactly as they appear on the sticker license. There should be a sticker located on the Advantech hardware that provides the necessary license details.\
-    \
 
 
     <figure><img src="https://i.imgur.com/zRGaJEr.png" alt=""><figcaption></figcaption></figure>
 
     <figure><img src="https://hackmd.io/_uploads/SkHGfKtNa.png" alt=""><figcaption></figcaption></figure>
-4.  By default, the system creates a hidden partition that uses half of the available disk space for backups. This partition must be larger than the space currently used by the operating system and data. If you have multiple volumes, you can select a different volume for the ASZ hidden partition.
+4.  By default, the system creates a hidden partition that uses half of the available disk space for backups. This partition must be larger than the space currently used by the operating system and data. If you have multiple volumes, you can select a different volume for the ASZ hidden partition.\
+
 
     <figure><img src="../.gitbook/assets/acronis.jpg" alt=""><figcaption></figcaption></figure>
 5.  After completing the installation, the system will automatically reboot and create a hidden partition. You can view the **Acronis Secure Zone (ASZ)** partition in File Explorer or Disk Management on Windows. This partition is reserved for Acronis backups.\
