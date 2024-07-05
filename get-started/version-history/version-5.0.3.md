@@ -16,7 +16,7 @@ The earlier version of DeviceOn was tightly linked with AMT, but the key drawbac
 
 ### <mark style="color:blue;">File Synchronization</mark> <a href="#font_colorbluefile_synchronizationfont_12" id="font_colorbluefile_synchronizationfont_12"></a>
 
-**File synchronization** mostly assists in synchronizing files on the device to cloud storage. Users simply need to place the data in the default folder (**/WISE-Agent/FileSync**) in order for it to be synced. In some AI application scenarios, the device will continuously gather photos or video and submit them to the AI training platform for further training. Formerly, these raw data had to be manually operated on each device. DeviceOn allows you to collect video, audio, or image data on the device side in groups, which can save you a lot of time. Furthermore, if you are concerned about security, DeviceOn allows you to encrypt files on the device before uploading them to avoid sensitive data leaks.
+**File synchronization** mostly assists in synchronizing files on the device to cloud storage. Users simply need to place the data in the default folder (**\<DeviceOn Agent Installed Path>/FileSync**) in order for it to be synced. In some AI application scenarios, the device will continuously gather photos or video and submit them to the AI training platform for further training. Formerly, these raw data had to be manually operated on each device. DeviceOn allows you to collect video, audio, or image data on the device side in groups, which can save you a lot of time. Furthermore, if you are concerned about security, DeviceOn allows you to encrypt files on the device before uploading them to avoid sensitive data leaks.
 
 ![](https://docs.wise-paas.advantech.com/dataSource/resource/1671429987402587072.png)
 
