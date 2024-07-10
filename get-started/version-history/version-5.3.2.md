@@ -1,4 +1,4 @@
-# Version 5.3.2 (Coming Soon)
+# Version 5.3.2
 
 ## Out-of-Band Management
 
@@ -45,7 +45,7 @@ Used to power reset or shut down a device through a Edge BMC, rather than throug
 ## Dependency Upgrades <a href="#dependency-upgrades" id="dependency-upgrades"></a>
 
 * Upgraded MongoDB from version 5.0.19 to 6.0.14, providing access to the latest features and bug fixes in the database management system.
-* Upgraded RabbitMQ from version 3.12 to 3.13, incorporating the latest improvements and security updates in the open-source message broker.
+* Upgraded RabbitMQ from version 3.12 to <mark style="color:red;">**3.13**</mark>, incorporating the latest improvements and security updates in the open-source message broker. <mark style="color:red;background-color:yellow;">This version only supports OpenSSL 3.x encryption. DeviceOn Agent versions lower than 1.4.50 will not connect successfully.</mark>
 * Upgraded Vue.js from version 2 to 3, leveraging the latest features and performance improvements in the popular JavaScript framework.
 
 ### Third-Party Updates <a href="#third-party-updates" id="third-party-updates"></a>
