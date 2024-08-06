@@ -114,10 +114,214 @@ Above actions prefixed with ‘**\***’ require the respective Advantech SUSI D
 * Public Cloud (Azure, AWS, WISE-PaaS/EnSaaS)
 * Container
 
-There is a summary for these feature highlights on different operation system and hardware requirement.
+## Summary
 
+Here is a summary for these feature highlights on different operation system and hardware requirement.
 
-
-<table><thead><tr><th width="137"></th><th width="289">Feature Highlight</th><th>Windows 7, 8, 10, 11</th><th>Ubuntu 18.04/20.04 x64</th><th>Ubuntu 18.04/20.04 on Nvidia Jetson</th><th>Linux on RISC (Yocto)</th><th>Android on RISC RSB-4710 (RK3399)</th></tr></thead><tbody><tr><td><strong>Standard Offering (Cloud Feature)</strong></td><td><p><strong>Authentication</strong></p><ul><li>Basic (base64) &#x26; JWT</li><li>LDAP &#x26; Azure AD Domain Service</li><li>Two-Factor Authentication, 2FA</li></ul></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td><p><strong>Role-Based Access Control</strong></p><ul><li>Account &#x26; Role Management</li><li>Device &#x26; Device Group Management</li></ul></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td><p><strong>Notification &#x26; Alert Service</strong></p><ul><li>Event Logs</li><li>Mail, SMS, LINE, WeChat, Telegram, Teams, Slack, Webhook</li></ul></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td><p><strong>Data Management</strong></p><ul><li>Device Real-time &#x26; Historical Data Monitoring</li><li>1-Click to Data Visualization (Grafana)</li></ul></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td><p><strong>Operation Management</strong></p><ul><li>Batch Control &#x26; Statistical Analysis</li><li>Statics System Report</li><li>Task Scheduled</li><li>Device Map (Openstreet, Google, Baidu)</li><li>System Schedule Backup</li></ul></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td><strong>Remote Control</strong></td><td>Device Zero-touch Onboarding</td><td></td><td>● Azure IoT Edge</td><td></td><td></td><td></td></tr><tr><td></td><td>Device Data Zero-Downtime</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr><tr><td></td><td>Terminal</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr><tr><td></td><td>Screenshot</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td>Remote Desktop</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td>Power Control (On/Off, Reboot, Sleep, Hibernate)</td><td>●</td><td>●</td><td>◐</td><td>◐</td><td>◐ Reboot Only</td></tr><tr><td></td><td>System Backup/Recovery, Protection</td><td>●</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Device Threshold Detection (Rule-based Engine)</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr><tr><td></td><td>App Store (OTA), Software, Firmware Provisioning</td><td>●</td><td>●</td><td>●</td><td>●</td><td>◐</td></tr><tr><td></td><td>Process Monitoring &#x26; Control (Terminate, Restart, Launch)</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr><tr><td></td><td>Container Management (Start, Stop, Monitoring, Deploy)</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr><tr><td></td><td>Robot Operating System (ROS) Management</td><td></td><td>●</td><td></td><td></td><td></td></tr><tr><td></td><td>Device Manager (Hardware Sentinel)</td><td>●</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Audio Volume Control</td><td>●</td><td></td><td></td><td></td><td>●</td></tr><tr><td></td><td>Intel AMT Remote Control and Management</td><td>●</td><td>●</td><td></td><td></td><td></td></tr><tr><td></td><td>Intel IPMI Remote Control and Management</td><td>●</td><td>●</td><td></td><td></td><td></td></tr><tr><td><strong>Advantech Hardware Support</strong></td><td>Hardware Watchdog Monitoring</td><td>●</td><td>◐</td><td></td><td></td><td>●</td></tr><tr><td></td><td>Hardware GPIO Control &#x26; Customized (via <strong>SUSI Driver</strong>)</td><td>●</td><td>●</td><td></td><td></td><td></td></tr><tr><td></td><td>Brightness &#x26; Backlight Control</td><td>●</td><td>●</td><td></td><td></td><td>●</td></tr><tr><td></td><td>Hardware Sensor Monitoring (via <strong>SUSI Driver</strong>)</td><td>●</td><td>●</td><td></td><td>◐</td><td></td></tr><tr><td></td><td>BIOS Update</td><td>●</td><td>●</td><td></td><td></td><td></td></tr><tr><td></td><td>BSP Update</td><td></td><td></td><td></td><td>●</td><td>●</td></tr><tr><td></td><td>Advantech Industrial SQ Flash/RAM Remote Management &#x26; Monitoring</td><td>●</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Advantech iBMC, Out-of-Band Remote Management (Cross-network)</td><td>●</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Advantech Industrial Display, On-Screen Display (OSD) Management</td><td>●</td><td></td><td></td><td></td><td></td></tr><tr><td><strong>Windows 10 Lockdown Features</strong></td><td>USB Drive Block</td><td>● Win10, 11 LTSC Only</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Keyboard Lock &#x26; Filter</td><td>● Win10, 11 LTSC Only</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Touch Screen &#x26; Gesture Lock</td><td>● Win10, 11 LTSC Only</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Windows Notification Block</td><td>● Win10, 11 LTSC Only</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>UWF Protection</td><td>● Win10, 11 LTSC Only</td><td></td><td></td><td></td><td></td></tr></tbody></table>
+<table><thead><tr><th width="137"></th><th width="289">Feature Highlight</th><th>Windows 7, 8, 10, 11</th><th>Ubuntu 18.04/20.04 x64</th><th>Ubuntu 18.04/20.04 on Nvidia Jetson</th><th>Linux on RISC (Yocto)</th><th>Android on RISC RSB-4710 (RK3399)</th></tr></thead><tbody><tr><td><strong>Standard Offering (Cloud Feature)</strong></td><td><p><strong>Authentication</strong></p><ul><li>Basic (base64) &#x26; JWT</li><li>LDAP &#x26; Azure AD Domain Service</li><li>Two-Factor Authentication, 2FA</li></ul></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td><p><strong>Role-Based Access Control</strong></p><ul><li>Account &#x26; Role Management</li><li>Device &#x26; Device Group Management</li></ul></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td><p><strong>Notification &#x26; Alert Service</strong></p><ul><li>Event Logs</li><li>Mail, SMS, LINE, WeChat, Telegram, Teams, Slack, Webhook</li></ul></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td><p><strong>Data Management</strong></p><ul><li>Device Real-time &#x26; Historical Data Monitoring</li><li>1-Click to Data Visualization (Grafana)</li></ul></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td><p><strong>Operation Management</strong></p><ul><li>Batch Control &#x26; Statistical Analysis</li><li>Statics System Report</li><li>Task Scheduled</li><li>Device Map (Openstreet, Google, Baidu)</li><li>System Schedule Backup</li></ul></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td><strong>Remote Control</strong></td><td>Device Zero-touch Onboarding</td><td></td><td>● Azure IoT Edge</td><td></td><td></td><td></td></tr><tr><td></td><td>Device Data Zero-Downtime</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr><tr><td></td><td>Terminal</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr><tr><td></td><td>Screenshot</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td>Remote Desktop</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td>Power Control (On/Off, Reboot, Sleep, Hibernate)</td><td>●</td><td>●</td><td>◐ On/Off, Reboot</td><td>◐ Reboot Only</td><td>◐ Reboot Only</td></tr><tr><td></td><td>System Backup/Recovery, Protection</td><td>●</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Device Threshold Detection (Rule-based Engine)</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr><tr><td></td><td>App Store (OTA), Software, Firmware Provisioning</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td>Process Monitoring &#x26; Control (Terminate, Restart, Launch)</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr><tr><td></td><td>Container Management (Start, Stop, Monitoring, Deploy)</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr><tr><td></td><td>Robot Operating System (ROS) Management</td><td></td><td>●</td><td></td><td></td><td></td></tr><tr><td></td><td>Device Manager (Hardware Sentinel)</td><td>●</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Audio Volume Control</td><td>●</td><td></td><td></td><td></td><td>●</td></tr><tr><td></td><td>Intel AMT Remote Control and Management</td><td>●</td><td>●</td><td></td><td></td><td></td></tr><tr><td></td><td>Intel IPMI Remote Control and Management</td><td>●</td><td>●</td><td></td><td></td><td></td></tr><tr><td><strong>Advantech Hardware Support</strong></td><td>Hardware Watchdog Monitoring</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td></td><td>Hardware GPIO Control &#x26; Customized (via <strong>SUSI Driver</strong>)</td><td>●</td><td>●</td><td></td><td></td><td></td></tr><tr><td></td><td>Brightness &#x26; Backlight Control</td><td>●</td><td>●</td><td></td><td></td><td>●</td></tr><tr><td></td><td>Hardware Sensor Monitoring (via <strong>SUSI Driver</strong>)</td><td>●</td><td>●</td><td></td><td>●</td><td></td></tr><tr><td></td><td>BIOS Update</td><td>●</td><td>●</td><td></td><td></td><td></td></tr><tr><td></td><td>BSP Update</td><td></td><td></td><td></td><td>●</td><td>●</td></tr><tr><td></td><td>Advantech Industrial SQ Flash/RAM Remote Management &#x26; Monitoring</td><td>●</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Advantech iBMC, Out-of-Band Remote Management (Cross-network)</td><td>●</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Advantech Industrial Display, On-Screen Display (OSD) Management</td><td>●</td><td></td><td></td><td></td><td></td></tr><tr><td><strong>Windows 10 Lockdown Features</strong></td><td>USB Drive Block</td><td>● Win10, 11 LTSC Only</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Keyboard Lock &#x26; Filter</td><td>● Win10, 11 LTSC Only</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Touch Screen &#x26; Gesture Lock</td><td>● Win10, 11 LTSC Only</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Windows Notification Block</td><td>● Win10, 11 LTSC Only</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>UWF Protection</td><td>● Win10, 11 LTSC Only</td><td></td><td></td><td></td><td></td></tr></tbody></table>
 
 \
+
+
+* **Standard Offering (Cloud Feature)**
+  * **Authentication**
+    * Detail:
+      * Basic (base64) & JWT
+      * LDAP & Azure AD Domain Service
+      * Two-Factor Authentication, 2FA
+    * Supported Platforms:&#x20;
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+      * Android on RISC RSB-4710 (RK3399)
+  * **Role-Based Access Control**
+    * Detail:
+      * Account & Role Management
+      * Device & Device Group Management
+    * Supported Platforms:&#x20;
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+      * Android on RISC RSB-4710 (RK3399)
+  * **Notification & Alert Service**
+    * Detail:
+      * Event Logs
+      * Mail, SMS, LINE, WeChat, Telegram, Teams, Slack, Webhook
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+      * Android on RISC RSB-4710 (RK3399)
+  * **Data Management**
+    * Detail:
+      * Device Real-time & Historical Data Monitoring
+      * 1-Click to Data Visualization (Grafana)
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+      * Android on RISC RSB-4710 (RK3399)
+  * **Operation Management**
+    * Detail:
+      * Batch Control & Statistical Analysis
+      * Statics System Report
+      * Task Scheduled
+      * Device Map (Openstreet, Google, Baidu)
+      * System Schedule Backup
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+      * Android on RISC RSB-4710 (RK3399)
+* **Remote Control**
+  * Device Zero-touch Onboarding
+    * Supported Platforms:
+      * Azure IoT Edge
+  * Device Data Zero-Downtime
+    * Supported Platforms:&#x20;
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+  * Terminal
+    * Supported Platforms:&#x20;
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+  * Screenshot
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+      * Android on RISC RSB-4710 (RK3399)
+  * Remote Desktop
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+      * Android on RISC RSB-4710 (RK3399)
+  * Power Control - On/Off
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+  * Power Control - Reboot
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+      * Android on RISC RSB-4710 (RK3399)
+  * Power Control - Sleep, Hibernate
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+  * System Backup/Recovery, Protection
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+  * Device Threshold Detection (Rule-based Engine)
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+  * App Store (OTA), Software, Firmware Provisioning
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+      * Android on RISC RSB-4710 (RK3399)
+  * Process Monitoring & Control (Terminate, Restart, Launch)
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+  * Container Management (Start, Stop, Monitoring, Deploy)
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+  * Robot Operating System (ROS) Management
+    * Supported Platforms:
+      * Ubuntu 18.04/20.04 x64
+  * Device Manager (Hardware Sentinel)
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+  * Audio Volume Control
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Android on RISC RSB-4710 (RK3399)
+  * Intel AMT Remote Control and Management
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+  * Intel IPMI Remote Control and Management
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+* **Advantech Hardware Support**
+  * Hardware Watchdog Monitoring
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Ubuntu 18.04/20.04 on Nvidia Jetson
+      * Linux on RISC (Yocto)
+      * Android on RISC RSB-4710 (RK3399)
+  * Hardware GPIO Control & Customized (via SUSI Driver)
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+  * Brightness & Backlight Control
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Android on RISC RSB-4710 (RK3399)
+  * Hardware Sensor Monitoring (via SUSI Driver)
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+      * Linux on RISC (Yocto)
+  * BIOS Update
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+      * Ubuntu 18.04/20.04 x64
+  * BSP Update
+    * Supported Platforms:
+      * Linux on RISC (Yocto)
+      * Android on RISC RSB-4710 (RK3399)
+  * Advantech Industrial SQ Flash/RAM Remote Management & Monitoring
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+  * Advantech iBMC, Out-of-Band Remote Management (Cross-network)
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+  * Advantech Industrial Display, On-Screen Display (OSD) Management
+    * Supported Platforms:
+      * Windows 7, 8, 10, 11
+* **Windows 10 Lockdown Features**
+  * USB Drive Block
+    * Supported Platforms:
+      * Windows 10 LTSC, 11 LTSC Only
+  * Keyboard Lock & Filter
+    * Supported Platforms:
+      * Windows 10 LTSC, 11 LTSC Only
+  * Touch Screen & Gesture Lock
+    * Supported Platforms:
+      * Windows 10 LTSC, 11 LTSC Only
+  * Windows Notification Block
+    * Supported Platforms:
+      * Windows 10 LTSC, 11 LTSC Only
+  * UWF Protection
+    * Supported Platforms:
+      * Windows 10 LTSC, 11 LTSC Only
