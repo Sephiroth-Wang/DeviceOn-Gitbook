@@ -83,9 +83,13 @@ _From the perspective of **which apps can be installed on the device**_
 
 The Repository Management features allow configuring storage locations for app packages. Supported protocols include **Azure Blob**, **Amazon S3**, and **FTP**. Admins can create custom repositories or use the built-in Default-FTP server.
 
-Key capabilities:
+#### Key capabilities:
 
-Upload app packages Manage app versions Edit app metadata like descriptions and icons Package custom apps using the online wrapping tool
+Upload app packages, Manage app versions, Edit app metadata like descriptions and icons. Package custom apps using the online wrapping tool.
+
+#### Limitation:
+
+* Maximum size of app package: 1.5 GB
 
 {% hint style="info" %}
 By default, a read-only device-upgrade repository is provided by Advantech for new DeviceOn Agent upgrades. Admins cannot modify or access packages in this repository directly.

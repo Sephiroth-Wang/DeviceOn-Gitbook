@@ -9,8 +9,8 @@
 
 * A running DeviceOn server.
 * A device which running on Windows operating system and installed DeviceOn Agent, that connects to DeviceOn server.
-* A NotePad++ installer, 32-bit edition is recommended. Its name is “**npp.7.8.2.Installer.exe**”, something like that. It can be downloaded from [**https://notepad-plus-plus.org/downloads/**](https://notepad-plus-plus.org/downloads/).
-* Automation skills to install target software package. It is because that user intervention is not possible during provisioning via App Store. For Windows it can be batch file or power shell, while for Ubuntu it may be shell scripts.
+* Every files are required for installation. Such as installer, binary files, also including necessary dependencies. In this lab, taking Notepad++ for demo. A NotePad++ installer, 32-bit edition is recommended. Its name is “**npp.7.8.2.Installer.exe**”, something like that. It can be downloaded from [**https://notepad-plus-plus.org/downloads/**](https://notepad-plus-plus.org/downloads/).
+* <mark style="background-color:yellow;">**Automation skills to install target software package**</mark>**.** It is because that user intervention is not possible during provisioning via App Store. For Windows it can be batch file or power shell, while for Ubuntu it may be shell scripts.
 
 ## Example
 
