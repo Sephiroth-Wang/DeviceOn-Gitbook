@@ -99,7 +99,7 @@ Above actions prefixed with ‘**\***’ require the respective Advantech SUSI D
 
 ## Device Platform
 
-* [**Windows 7 SP1/8/10/11 32-bit/64-bit**](https://eiot.blob.core.windows.net/deviceon/WISE-Agent%20for%20v5.0.zip)&#x20;
+* [**Windows 10/11 32-bit/64-bit**](https://eiot.blob.core.windows.net/deviceon/WISE-Agent%20for%20v5.0.zip)&#x20;
 * [**Ubuntu 18.04, 20.04, 22.04 x64**](https://eiot.blob.core.windows.net/deviceon/WISE-Agent%20for%20v5.0.zip)&#x20;
 * [**Ubuntu Core**](https://snapcraft.io/wise-deviceon-agent)&#x20;
 * [**Ubuntu 18.04, 20.04 on Nvidia Jetson**](https://eiot.blob.core.windows.net/deviceon/WISE-Agent%20for%20v5.0.zip)&#x20;
@@ -124,42 +124,18 @@ Here is a summary for these feature highlights on different operation system and
       * Basic (base64) & JWT
       * LDAP & Azure AD Domain Service
       * Two-Factor Authentication, 2FA
-    * Supported Platforms:&#x20;
-      * Windows 7, 8, 10, 11
-      * Ubuntu 18.04/20.04 x64
-      * Ubuntu 18.04/20.04 on Nvidia Jetson
-      * Linux on RISC (Yocto)
-      * Android on RISC RSB-4710 (RK3399)
   * **Role-Based Access Control**
     * Detail:
       * Account & Role Management
       * Device & Device Group Management
-    * Supported Platforms:&#x20;
-      * Windows 7, 8, 10, 11
-      * Ubuntu 18.04/20.04 x64
-      * Ubuntu 18.04/20.04 on Nvidia Jetson
-      * Linux on RISC (Yocto)
-      * Android on RISC RSB-4710 (RK3399)
   * **Notification & Alert Service**
     * Detail:
       * Event Logs
       * Mail, SMS, LINE, WeChat, Telegram, Teams, Slack, Webhook
-    * Supported Platforms:
-      * Windows 7, 8, 10, 11
-      * Ubuntu 18.04/20.04 x64
-      * Ubuntu 18.04/20.04 on Nvidia Jetson
-      * Linux on RISC (Yocto)
-      * Android on RISC RSB-4710 (RK3399)
   * **Data Management**
     * Detail:
       * Device Real-time & Historical Data Monitoring
       * 1-Click to Data Visualization (Grafana)
-    * Supported Platforms:
-      * Windows 7, 8, 10, 11
-      * Ubuntu 18.04/20.04 x64
-      * Ubuntu 18.04/20.04 on Nvidia Jetson
-      * Linux on RISC (Yocto)
-      * Android on RISC RSB-4710 (RK3399)
   * **Operation Management**
     * Detail:
       * Batch Control & Statistical Analysis
@@ -167,83 +143,77 @@ Here is a summary for these feature highlights on different operation system and
       * Task Scheduled
       * Device Map (Openstreet, Google, Baidu)
       * System Schedule Backup
-    * Supported Platforms:
-      * Windows 7, 8, 10, 11
-      * Ubuntu 18.04/20.04 x64
-      * Ubuntu 18.04/20.04 on Nvidia Jetson
-      * Linux on RISC (Yocto)
-      * Android on RISC RSB-4710 (RK3399)
 * **Remote Control**
   * Device Zero-touch Onboarding
     * Supported Platforms:
       * Azure IoT Edge
   * Device Data Zero-Downtime
     * Supported Platforms:&#x20;
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
       * Ubuntu 18.04/20.04 on Nvidia Jetson
       * Linux on RISC (Yocto)
   * Terminal
     * Supported Platforms:&#x20;
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
       * Ubuntu 18.04/20.04 on Nvidia Jetson
       * Linux on RISC (Yocto)
   * Screenshot
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
       * Ubuntu 18.04/20.04 on Nvidia Jetson
       * Linux on RISC (Yocto)
       * Android on RISC RSB-4710 (RK3399)
   * Remote Desktop
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
       * Ubuntu 18.04/20.04 on Nvidia Jetson
       * Linux on RISC (Yocto)
       * Android on RISC RSB-4710 (RK3399)
   * Power Control - On/Off
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
       * Ubuntu 18.04/20.04 on Nvidia Jetson
   * Power Control - Reboot
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
       * Ubuntu 18.04/20.04 on Nvidia Jetson
       * Linux on RISC (Yocto)
       * Android on RISC RSB-4710 (RK3399)
   * Power Control - Sleep, Hibernate
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
   * System Backup/Recovery, Protection
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
   * Device Threshold Detection (Rule-based Engine)
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
       * Ubuntu 18.04/20.04 on Nvidia Jetson
       * Linux on RISC (Yocto)
   * App Store (OTA), Software, Firmware Provisioning
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
       * Ubuntu 18.04/20.04 on Nvidia Jetson
       * Linux on RISC (Yocto)
       * Android on RISC RSB-4710 (RK3399)
   * Process Monitoring & Control (Terminate, Restart, Launch)
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
       * Ubuntu 18.04/20.04 on Nvidia Jetson
       * Linux on RISC (Yocto)
   * Container Management (Start, Stop, Monitoring, Deploy)
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
       * Ubuntu 18.04/20.04 on Nvidia Jetson
       * Linux on RISC (Yocto)
@@ -252,44 +222,44 @@ Here is a summary for these feature highlights on different operation system and
       * Ubuntu 18.04/20.04 x64
   * Device Manager (Hardware Sentinel)
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
   * Audio Volume Control
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Android on RISC RSB-4710 (RK3399)
   * Intel AMT Remote Control and Management
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
   * Intel IPMI Remote Control and Management
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
 * **Advantech Hardware Support**
   * Hardware Watchdog Monitoring
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
       * Ubuntu 18.04/20.04 on Nvidia Jetson
       * Linux on RISC (Yocto)
       * Android on RISC RSB-4710 (RK3399)
   * Hardware GPIO Control & Customized (via SUSI Driver)
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
   * Brightness & Backlight Control
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
       * Android on RISC RSB-4710 (RK3399)
   * Hardware Sensor Monitoring (via SUSI Driver)
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
       * Linux on RISC (Yocto)
   * BIOS Update
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
       * Ubuntu 18.04/20.04 x64
   * BSP Update
     * Supported Platforms:
@@ -297,13 +267,13 @@ Here is a summary for these feature highlights on different operation system and
       * Android on RISC RSB-4710 (RK3399)
   * Advantech Industrial SQ Flash/RAM Remote Management & Monitoring
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
   * Advantech iBMC, Out-of-Band Remote Management (Cross-network)
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
   * Advantech Industrial Display, On-Screen Display (OSD) Management
     * Supported Platforms:
-      * Windows 7, 8, 10, 11
+      * Windows 10, 11
 * **Windows 10 Lockdown Features**
   * USB Drive Block
     * Supported Platforms:
