@@ -133,6 +133,48 @@ C:\Program Files (x86)\Advantech\DeviceOn Agent\logs.
 
 <details>
 
+<summary>How can I collect DeviceOn agent logs and diagnostic report?</summary>
+
+For DeviceOn Agent versions greater than v2.0.21
+
+Default Install Path - Windows
+
+```batch
+C:\Program Files (x86)\Advantech\DeviceOn Agent
+```
+
+Default Install Path - Ubuntu
+
+```sh
+/usr/local/AgentService
+```
+
+1. Change `{Install Path}/portal/config/app.yaml` : **LogLevl** from **2** to **1**. \
+   `LogLevl: 2`\
+   to\
+   `LogLevl: 1`\
+
+2. Change `{Install Path}/log.ini` : **log\_level** from **4** to **5**.\
+   `#log_level=4`\
+   to\
+   `log_level=5`\
+
+3. Reboot the device.
+4. Open DeviceOn agent portal, and sign in.
+5. Run `{Install Path}/diagnostic.exe -d` (need admin privilege).
+
+Diagnostic report will save to folder:
+
+```sh
+{Install Path}/diagnostic_report/
+```
+
+
+
+</details>
+
+<details>
+
 <summary>Why doesn't the Grafana dashboard display all data within the set time interval?</summary>
 
 DeviceOn provide the Simple JSON interface to access sensor data from the edge device, there are two mechanisms to retrieve data, one is **Sampling** to scatter the value of the interval, require lot’s of computing resource of databases. The other is **Raw** to return latest raw data with **5,000** records. Both of two methods support data within **7** days only.
