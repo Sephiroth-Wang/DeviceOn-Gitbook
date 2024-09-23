@@ -11,6 +11,7 @@
 * Windows: [v-5.3.2 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server\_Setup\_5.3.2.exe), SHA-512[^1]
 * Ubuntu 22.04: [v-5.3.2 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server\_Ubuntu-22.04\_x64\_5.3.2.run), SHA-512[^2]&#x20;
 * Windows + Ubuntu + Migration Tool: [v-5.3.2 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server.zip), SHA-512[^3]&#x20;
+* [DeviceOn Open SDK](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server\_SDK.zip)
 {% endtab %}
 
 {% tab title="DeviceOn Agent" %}
