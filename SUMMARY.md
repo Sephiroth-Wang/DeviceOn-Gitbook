@@ -20,7 +20,7 @@
     * [Windows](get-started/installation-and-deployment/agent/windows.md)
     * [Ubuntu](get-started/installation-and-deployment/agent/ubuntu.md)
 * [⏲️ Version History](get-started/version-history/README.md)
-  * [Version 5.3.2](get-started/version-history/version-5.3.2.md)
+  * [Version 5.3.6](get-started/version-history/version-5.3.6.md)
   * [Version 5.2.4](get-started/version-history/version-5.2.4.md)
   * [Version 5.1.2](get-started/version-history/version-5.1.2.md)
   * [Version 5.0.3](get-started/version-history/version-5.0.3.md)
