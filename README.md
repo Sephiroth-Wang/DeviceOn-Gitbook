@@ -8,9 +8,9 @@
 
 {% tabs %}
 {% tab title="DeviceOn Server" %}
-* Windows: [v-5.3.2 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server\_Setup\_5.3.2.exe), SHA-512[^1]
-* Ubuntu 22.04: [v-5.3.2 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server\_Ubuntu-22.04\_x64\_5.3.2.run), SHA-512[^2]&#x20;
-* Windows + Ubuntu + Migration Tool: [v-5.3.2 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server.zip), SHA-512[^3]&#x20;
+* Windows: [v-5.3.6 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server\_Setup\_5.3.6.exe), SHA-512[^1]
+* Ubuntu 22.04: [v-5.3.6 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server\_Ubuntu-22.04\_x64\_5.3.6.run), SHA-512[^2]&#x20;
+* Windows + Ubuntu + Migration Tool: [v-5.3.6 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server.zip), SHA-512[^3]&#x20;
 * [DeviceOn Open SDK](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server\_SDK.zip)
 {% endtab %}
 
@@ -32,11 +32,11 @@
 [web-user-interface](web-user-interface/)
 {% endcontent-ref %}
 
-[^1]: 8d94d6125e6e98389ce9aaef00427de11103b6dce7cae40336a0f29b338bbea2662f256652e17ca037121b3aeb719615620e9d1d27ab47da3e7d54cab08e86db
+[^1]: 5b4ea8f72aab8c564349b1169137d1511ef156997578dc4c44d126e87fbc00429dcaa1928949dca3ae4c36e31e4c4c04cfffb3c4ce13e5f25504898552ff1d2315620e9d1d27ab47da3e7d54cab08e86db
 
-[^2]: 1089b50b5b01ad43eeb34556b7a26c5045837210d0884a82e8513746321431ccbdb51f56546a35be1fcb80c9036dd0e03dd932dfe1f4ce81e43a9a5349d35455
+[^2]: caa442c1b16da34055023d3aaa577c4fd1d0041e42b3784766409c5f7f7ee488c307127089a34e061e7677f7962402aaf538169c6377c2b1ad1be1786536e141
 
-[^3]: 6e6484fc61a6cf6cc2a4570bdecf886bf1e9c828c677d24b2d6b2685301826a3ef546f69715c8a814d6ae4443f107f48c070adccf4725d9b5a3a22077eb98eba
+[^3]: d65be6716eb780e902e9da2617e784be6a8ddcdf963ca7e559c130c7a3de1182efe5865b91b34799c1117d7d55b010166a1483a902dc2fbb2ed11e2580b4c9cc
 
 [^4]: 0bb71bbacc3afbf2bedacba744951fab3c8396290ce7185b32c791751e3116d17f11f32d9c763fdf2274251dbcf2ddf805194cb7b6563ec1ad862c7ee09c75da
 
