@@ -8,16 +8,16 @@
 
 {% tabs %}
 {% tab title="DeviceOn Server" %}
-* Windows: [v-5.3.7 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server\_Setup\_5.3.7.exe), SHA-512[^1]
-* Ubuntu 22.04: [v-5.3.7 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server\_Ubuntu-22.04\_x64\_5.3.7.run), SHA-512[^2]&#x20;
-* Windows + Ubuntu + Migration Tool: [v-5.3.7 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server.zip), SHA-512[^3]&#x20;
-* [DeviceOn Open SDK](https://eiot.blob.core.windows.net/deviceon/DeviceOn\_Server\_SDK.zip)
+* Windows: [v-5.3.7 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn_Server_Setup_5.3.7.exe), SHA-512[^1]
+* Ubuntu 22.04: [v-5.3.7 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn_Server_Ubuntu-22.04_x64_5.3.7.run), SHA-512[^2]&#x20;
+* Windows + Ubuntu + Migration Tool: [v-5.3.7 ](https://eiot.blob.core.windows.net/deviceon/DeviceOn_Server.zip), SHA-512[^3]&#x20;
+* [DeviceOn Open SDK](https://eiot.blob.core.windows.net/deviceon/DeviceOn_Server_SDK.zip)
 {% endtab %}
 
 {% tab title="DeviceOn Agent" %}
 **Windows & Ubuntu (20.04/22.04/Nvidia Jetson)**
 
-* [for Server 5.x ](https://eiot.blob.core.windows.net/deviceon/WISE-Agent%20for%20v5.0.zip), SHA-512[^4] (v2.0.23)
+* [for Server 5.x ](https://eiot.blob.core.windows.net/deviceon/WISE-Agent%20for%20v5.0.zip), SHA-512[^4] (v2.0.25)
 * [for Server 4.x ](https://eiot.blob.core.windows.net/deviceon/WISE-Agent.zip), SHA-512[^5]&#x20;
 {% endtab %}
 {% endtabs %}
@@ -38,6 +38,6 @@
 
 [^3]: 968320623ae1bcac2223a07e278b3e44e91220f877035d47371dab3bc726397e4c99cdc4635e5d1c6215587d2f0399a2f571e5195d7424f01f97a94f8c03afad
 
-[^4]: 0bb71bbacc3afbf2bedacba744951fab3c8396290ce7185b32c791751e3116d17f11f32d9c763fdf2274251dbcf2ddf805194cb7b6563ec1ad862c7ee09c75da
+[^4]: bad20bcb392300c8cfdd5a613aac8d484df267006a85efa50683326cfd1d824b5ce7c82d98a3ebb9ac9bab332f81230620ee51b8d876e30690d73495be03d11a
 
 [^5]: b520037251c05f039e4784649f3e617f12196b0fe47b981a0467a79d6df218991595d865c381a4a648484d15160206d0868d15c35e9ddd00b9fafbea257d38ef
