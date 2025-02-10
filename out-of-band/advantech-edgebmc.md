@@ -44,35 +44,17 @@ Advantech's EdgeBMC offers complete integration with DeviceOn, empowering users 
 
 Looking ahead, Phase 2 aims to enrich this ecosystem by providing custom APIs. These APIs are designed for effortless integration with the next-gen remote management platforms, aligning with user preferences for enhanced flexibility and control.
 
-## Supported Hardware
+## [Supported Hardware](https://campaign.advantech.online/en/EdgeBMC/)
 
-#### [`AFE-E350`](https://www.advantech.com/zh-tw/products/8a011db5-af04-48dc-bcd5-75a4bdd38c4d/afe-e350/mod_6385cb7d-2174-4788-8ccb-371732938583)
+For more comprehensive information, please visit the [**landing page**](https://campaign.advantech.online/en/EdgeBMC/).
 
-<figure><img src="../.gitbook/assets/image (135).png" alt="" width="375"><figcaption></figcaption></figure>
-
-Intel® Atom® x6000E series and Celeron® J series 3.5" SBC
-
-* Atom® x6000E series and Intel® Celeron® J and N series with Quad/Dual Cores, TDP 6-12W
-* 3 simultaneous displays: LVDS/HDMI/DP
-* 3 GbE support support TSN & PoE
-* 4x RS232/422/485, 6x USB, 2x CANBus, 1x I2C/SMBus
-* 3 Expansions: M.2 E-Key, B-Key, M-Key
-* Supports EdgeBMC & Software APIs, DeviceOn
-
-#### [<mark style="color:blue;">`ARK-1251`</mark>](https://www.advantech.com/zh-tw/products/1-2jkbyz/ark-1251/mod_22a92517-513c-4ce5-8a53-25565614f4d6)
-
-<figure><img src="../.gitbook/assets/image.png" alt="" width="303"><figcaption></figcaption></figure>
-
-Intel® Core Ultra U series processor with thee LAN, four COM, HDMI, DP, GbE, GPIO, Remote Switch, USB x 6
-
-* Intel® Core Ultra 5/Ultra 7 Processor
-* DDR5-5600 SO-DIMM memory support up 96G
-* M.2 E Key, B Key and M Key for storage and wireless module installation
-* Up to 3 x Intel GbE, 4 x serial ports, 8-bit DIO, optional CANBus
-* Dual displays with 1 x 8K HDMI + 1 x 4K DP
-* 2 x USB 3.2 and 4 x USB 2.0
-* 12V \~ 28V wide range power input
-* -20 \~ 60 °C extended operating temperature
+* AFE-350
+* AIMB-292
+* ARK-1251M
+* IO-5354
+* MIO-5379
+* AFE-R360
+* AFE-R760
 
 ### Configuration?
 
