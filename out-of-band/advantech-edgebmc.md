@@ -46,9 +46,9 @@ Looking ahead, Phase 2 aims to enrich this ecosystem by providing custom APIs. T
 
 ## Supported Hardware
 
-#### [`AFE-E350`](https://www.advantech.com/zh-tw/products/8a011db5-af04-48dc-bcd5-75a4bdd38c4d/afe-e350/mod\_6385cb7d-2174-4788-8ccb-371732938583)
+#### [`AFE-E350`](https://www.advantech.com/zh-tw/products/8a011db5-af04-48dc-bcd5-75a4bdd38c4d/afe-e350/mod_6385cb7d-2174-4788-8ccb-371732938583)
 
-<figure><img src="../.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (135).png" alt="" width="375"><figcaption></figcaption></figure>
 
 Intel® Atom® x6000E series and Celeron® J series 3.5" SBC
 
@@ -58,6 +58,21 @@ Intel® Atom® x6000E series and Celeron® J series 3.5" SBC
 * 4x RS232/422/485, 6x USB, 2x CANBus, 1x I2C/SMBus
 * 3 Expansions: M.2 E-Key, B-Key, M-Key
 * Supports EdgeBMC & Software APIs, DeviceOn
+
+#### <mark style="color:blue;">`ARK-1251`</mark>
+
+<figure><img src="../.gitbook/assets/image.png" alt="" width="303"><figcaption></figcaption></figure>
+
+Intel® Core Ultra U series processor with thee LAN, four COM, HDMI, DP, GbE, GPIO, Remote Switch, USB x 6
+
+* Intel® Core Ultra 5/Ultra 7 Processor
+* DDR5-5600 SO-DIMM memory support up 96G
+* M.2 E Key, B Key and M Key for storage and wireless module installation
+* Up to 3 x Intel GbE, 4 x serial ports, 8-bit DIO, optional CANBus
+* Dual displays with 1 x 8K HDMI + 1 x 4K DP
+* 2 x USB 3.2 and 4 x USB 2.0
+* 12V \~ 28V wide range power input
+* -20 \~ 60 °C extended operating temperature
 
 ### Configuration?
 

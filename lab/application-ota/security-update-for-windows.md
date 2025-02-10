@@ -14,7 +14,7 @@ In this way, the Administrator can use DeviceOn to regularly deploy security upd
 
 * A running DeviceOn server.
 * A device which running on Windows operating system and installed DeviceOn Agent, that connects to DeviceOn server.
-* A cumulative update for your **Windows version and Build number.** It can be downloaded from [Microsoft website](https://support.microsoft.com/en-us/topic/windows-10-and-windows-server-2019-update-history-725fc2e1-4443-6831-a5ca-51ff5cbcb059).  For example <mark style="color:purple;">**Windows 10 version**</mark>** 1809**. Please make sure the Windows version and build number on your device matches the requirements for this cumulative update. Installing the wrong cumulative update can cause issues, so it's important to verify your current OS build before installing.
+* A cumulative update for your **Windows version and Build number.** It can be downloaded from [Microsoft website](https://support.microsoft.com/en-us/topic/windows-10-and-windows-server-2019-update-history-725fc2e1-4443-6831-a5ca-51ff5cbcb059).  For example <mark style="color:purple;">**Windows 10 version**</mark>**&#x20;1809**. Please make sure the Windows version and build number on your device matches the requirements for this cumulative update. Installing the wrong cumulative update can cause issues, so it's important to verify your current OS build before installing.
 
 <figure><img src="../../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
 
@@ -44,4 +44,4 @@ If your systems need multiple KB security updates, I recommend creating separate
 
 After deploying the security update, you can validate it installed properly by checking for the corresponding KB in the system. To do this, go to Settings > Update & Security > Windows Update and click on Update history. This will show all of the installed updates on the device. Look for the specific KB number of the security update you deployed and verify it is listed as installed.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>

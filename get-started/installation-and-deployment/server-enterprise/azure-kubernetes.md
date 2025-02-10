@@ -102,7 +102,7 @@ Click -> [![](https://i.imgur.com/vnjklD7.png)](https://portal.azure.com/#create
 | AKS Max Node Count | Maximum number of Kubernetes nodes to auto-scaling                                                                                                                                                          |
 | Utc Value          | Fix value for generating unique string                                                                                                                                                                      |
 
-3. **Select **_**Review + create**_
+3. **Select&#x20;**_**Review + create**_
 4. **Validation and start to create.**
 
 <figure><img src="../../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>

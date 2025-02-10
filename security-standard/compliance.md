@@ -27,7 +27,7 @@ To safeguard our products and mitigate potential security risks, our implementat
 
 Our cybersecurity approach encompasses every layer of your infrastructure, delivering robust security from the ground up. Our offerings include:
 
-* **Edge Software Safeguards (**<mark style="color:blue;">**`Trellix`**</mark>** and **<mark style="color:blue;">**`Acronis`**</mark>**):** Enhance your edge computing software by integrating advanced security measures to protect against evolving cybersecurity threats.
+* **Edge Software Safeguards (**<mark style="color:blue;">**`Trellix`**</mark>**&#x20;and&#x20;**<mark style="color:blue;">**`Acronis`**</mark>**):** Enhance your edge computing software by integrating advanced security measures to protect against evolving cybersecurity threats.
 * **Secure Communication Protocols (TLS/SSL):** Secure data communication within an Internet of Things (IoT) ecosystem is pivotal to maintaining the integrity and privacy of the data in transit. Implementing state-of-the-art protocols ensures that data exchanged between devices and servers remains confidential and tamper-proof.
 
 #### Authenticity
