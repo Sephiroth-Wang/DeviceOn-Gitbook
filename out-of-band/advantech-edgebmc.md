@@ -59,7 +59,7 @@ Intel® Atom® x6000E series and Celeron® J series 3.5" SBC
 * 3 Expansions: M.2 E-Key, B-Key, M-Key
 * Supports EdgeBMC & Software APIs, DeviceOn
 
-#### <mark style="color:blue;">`ARK-1251`</mark>
+#### [<mark style="color:blue;">`ARK-1251`</mark>](https://www.advantech.com/zh-tw/products/1-2jkbyz/ark-1251/mod_22a92517-513c-4ce5-8a53-25565614f4d6)
 
 <figure><img src="../.gitbook/assets/image.png" alt="" width="303"><figcaption></figcaption></figure>
 
