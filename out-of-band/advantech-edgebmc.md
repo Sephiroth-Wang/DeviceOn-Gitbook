@@ -51,7 +51,7 @@ For more comprehensive information, please visit the [**landing page**](https://
 * AFE-350
 * AIMB-292
 * ARK-1251M
-* IO-5354
+* MIO-5354
 * MIO-5379
 * AFE-R360
 * AFE-R760
