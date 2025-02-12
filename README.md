@@ -15,7 +15,7 @@
 {% endtab %}
 
 {% tab title="DeviceOn Agent" %}
-**Windows & Ubuntu (20.04/22.04/Nvidia Jetson)**
+**Windows & Ubuntu (20.04/22.04/24.04/Nvidia Jetson)**
 
 * [for Server 5.x ](https://eiot.blob.core.windows.net/deviceon/WISE-Agent%20for%20v5.0.zip), SHA-512[^4] (v2.0.25)
 * [for Server 4.x ](https://eiot.blob.core.windows.net/deviceon/WISE-Agent.zip), SHA-512[^5]&#x20;

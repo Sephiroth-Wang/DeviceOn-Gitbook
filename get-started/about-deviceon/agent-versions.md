@@ -3,7 +3,7 @@
 ## Operation Systems and Recommendations
 
 * [**Windows 10/11 32-bit/64-bit**](https://eiot.blob.core.windows.net/deviceon/WISE-Agent%20for%20v5.0.zip)&#x20;
-* [**Ubuntu 18.04, 20.04, 22.04 x64**](https://eiot.blob.core.windows.net/deviceon/WISE-Agent%20for%20v5.0.zip)&#x20;
+* [**Ubuntu 18.04, 20.04, 22.04, 24.04 x64**](https://eiot.blob.core.windows.net/deviceon/WISE-Agent%20for%20v5.0.zip)&#x20;
 * [**Ubuntu Core**](https://snapcraft.io/wise-deviceon-agent)&#x20;
 * [**Ubuntu 18.04, 20.04 on Nvidia Jetson**](https://eiot.blob.core.windows.net/deviceon/WISE-Agent%20for%20v5.0.zip)&#x20;
 * **CentOS 7.7, 8.2 x64**
