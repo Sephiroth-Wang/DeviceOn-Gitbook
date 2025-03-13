@@ -117,32 +117,9 @@ The DeviceOn server pass through below famous vulnerability tools to ensure secu
 
 ## Thrid-Party Vulnerability Fixed and Update
 
-* OpenJRE, Eclipse Adoptium (v1.8.392)
-
-| CVE-2023-22045, CVE-2023-22049 |
-| ------------------------------ |
-
-* Tomcat (v9.0.82)
-
-| CVE-2023-28709, CVE-2023-34981, CVE-2023-41080, CVE-2023-45648, CVE-2023-44487, CVE-2023-42795, CVE-2023-42794 |
-| -------------------------------------------------------------------------------------------------------------- |
-
-* RabbitMQ (v3.12.7), Erlang 25
-
-| CVE-2023-46118 |
-| -------------- |
-
-* PostgreSQL (v14.9)
-
-| CVE-2022-1552, CVE-2022-2625, CVE-2022-41862, CVE-2023-2454, CVE-2023-2455, CVE-2023-39417 |
-| ------------------------------------------------------------------------------------------ |
-
-* MongoDB (v5.0.19)
-
-| CVE-2023-1409, CVE-2022-24272 |
-| ----------------------------- |
-
-* Grafana (v9.5.13)
-
-| CVE-2023-3128 |
-| ------------- |
+* OpenJRE, Eclipse Adoptium (v1.8.0422b06)
+* Tomcat (v9.0.100)
+* RabbitMQ (v3.13.7), Erlang 26.1.2
+* PostgreSQL (v14.17)
+* MongoDB (v6.0.20)
+* Grafana (v9.5.21)
