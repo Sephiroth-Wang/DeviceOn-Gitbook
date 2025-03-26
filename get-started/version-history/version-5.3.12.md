@@ -59,4 +59,4 @@ Used to power reset or shut down a device through a Edge BMC, rather than throug
 
 ## Upgrade Version Path <a href="#upgrade-version-path" id="upgrade-version-path"></a>
 
-Since MongoDB is the major database used by DeviceOn, we need to follow MongoDB's upgrade policy where users must successively upgrade between major releases. Since this version (v5.3.2) adopts MongoDB 6.0, if your current DeviceOn version is below 5.2.4, you need to first upgrade to [**version 5.2.4**](https://eiot.blob.core.windows.net/deviceon/Old%20Versions/Server/DeviceOn_Server_Setup_5.2.4.exe) which uses MongoDB 5.0 before upgrading to this version.
+Since MongoDB is the major database used by DeviceOn, we need to follow MongoDB's upgrade policy where users must successively upgrade between major releases. Since this version (v5.3.12) adopts MongoDB 6.0, if your current DeviceOn version is below 5.2.4, you need to first upgrade to [**version 5.2.4**](https://eiot.blob.core.windows.net/deviceon/Old%20Versions/Server/DeviceOn_Server_Setup_5.2.4.exe) which uses MongoDB 5.0 before upgrading to this version.
