@@ -48,7 +48,7 @@ Looking ahead, Phase 2 aims to enrich this ecosystem by providing custom APIs. T
 
 For more comprehensive information, please visit the [**landing page**](https://campaign.advantech.online/en/EdgeBMC/).
 
-* AFE-350
+* AFE-E350
 * AIMB-292
 * ARK-1251M
 * MIO-5354
